@@ -5,11 +5,11 @@
 iPLAss is a java-based enterprise class low-code web development platform, which have been focused on boosting the productivity of system development.  
 MVC based framework with non-programming development mechanism ensure both Productivity and Customizability.
 
-**<a href="https://iplass.org/en/" target="_blank">iPLAss Offcial Site</a>**
+**<a href="https://iplass.org/en/" target="_blank">iPLAss Official Site</a>**
 
 ## Image
 iPLAss's docker image for the Web server bundled with Tomcat.  
-To have it run in practise, the supported Database and corresponding JDBC driver is required.
+To have it run in practice, the supported Database and corresponding JDBC driver is required.
 
 ## Volume
 `/var/lib/iplass` (IPLASS_HOME)  
@@ -20,7 +20,7 @@ The home directory for iPLAss, where the definition file and JDBC driver suppose
 Please also host the mount directory.
 
 1. Install JDBC driver
-At the hosting mount directory created above, create directory named `jdbc`, and place the corresponding JDBC driver's jar file to `jdbc` drirectory.
+At the hosting mount directory created above, create directory named `jdbc`, and place the corresponding JDBC driver's jar file to `jdbc` directory.
 
 
 ## Booting
@@ -31,7 +31,7 @@ There are two ways to boot up, the "direct booting" and the "installer booting".
 
 #### prepare for booting  
 Place the service-config file: 'iplass-service-config.xml' to the hosting mount directory.  
-If there does not exist such a service-config file, then the "installer booting" should be choosen.
+If there does not exist such a service-config file, then the "installer booting" should be chosen.
 
 ※If the user want to rename the service-config file other than  "iplass-service-config.xml", then it is necessary to specify it by Java's system property 'mtp.config'.  
 Example: if the service-config file is renamed to `my-service-config.xml` and is placed at `IPLASS_HOME/conf`.
@@ -39,7 +39,7 @@ Example: if the service-config file is renamed to `my-service-config.xml` and is
 	docker run -e CATALINA_OPTS='-Dmtp.config=$IPLASS_HOME/conf/my-service-config.xml' ・・・
 
 #### Environment Variables ※3.0.10 or older versions  
-for 3.0.10 or older versions, it is necssary to specify the following environment variables in command lines.
+for 3.0.10 or older versions, it is necessary to specify the following environment variables in command lines.
 
 - IPLASS_DB_TYPE (required)  
 Specify the type of the Database.  
@@ -59,7 +59,7 @@ Use this command when using 'Microsoft SQL Server'.
 
 - IPLASS_DB_CONN (required)  
 Specify the method of connection to the Database.  
-The method of connection to the Database can be one of the followings. It is recommanded to use 'DataSource'.
+The method of connection to the Database can be one of the followings. It is recommended to use 'DataSource'.
   - 'DataSource'  
 Use this command when using 'DataSource' as the method of connection.
   - 'DriverManager'  
@@ -76,10 +76,10 @@ If not specified, the corresponding JDBC class is chosen based on the given Data
 Specify the host name or IP address of the Database.
 
 - IPLASS_JDBC_PORT (optional)  
-Specifiy the port number for the Database.  
+Specify the port number for the Database.  
 If not specified, the default port is set based on the given Database.
 
-- IPLASS_JDBC_SERVICE_NAME (only required when Orcale was specified above)  
+- IPLASS_JDBC_SERVICE_NAME (only required when Oracle was specified above)  
 specify the service name of the Database.
 
 - IPLASS_JDBC_URL (optional)  
@@ -99,7 +99,7 @@ The installer page will be presented at first access.
 "installer booting" does not require any preparation and environment variables.
 
 ### Command to start
-	docker run -p 8080:8080 -v [IPLASS_HOME's mount directory]:/var/lib/iplass iplass/iplass
+	docker run -p 8080:8080 -v [IPLASS_HOME's mount directory]:/var/lib/iplass ghcr.io/iplass/iplass
 
 ## How to use
 Once the container was initiated, please access the following URL at your web browser.
@@ -208,7 +208,7 @@ iPLAssのデータベースユーザのパスワードを指定します。
 「インストーラ起動」では特別な起動準備や環境変数の指定は必要ありません。
 
 ### 起動コマンド
-	docker run -p 8080:8080 -v [IPLASS_HOMEのマウントディレクトリ]:/var/lib/iplass iplass/iplass
+	docker run -p 8080:8080 -v [IPLASS_HOMEのマウントディレクトリ]:/var/lib/iplass ghcr.io/iplass/iplass
 
 ## 使用方法
 コンテナ起動後、Webブラウザで次のURLにアクセスしてください。
