@@ -40,7 +40,8 @@ Example: if the service-config file is renamed to `my-service-config.xml` and is
 
 #### Environment Variables
 ##### 3.1.36 or later, 3.2.11 or later versions
-If you are using 3.1.36 or later or 3.2.11 or later versions, the following environment variables are available.
+If you are using 3.1.36 or later or 3.2.11 or later versions, the following environment variables are available.  
+If a reverse proxy is applied to your environment, please change the proxy-related settings accordingly.
 
 - `TOMCAT_CONNECTOR_HTTP_PORT`  
   default value: `8080`  
@@ -178,7 +179,8 @@ service-configファイルが存在しない場合は「インストーラ起動
 
 #### 環境変数 
 ##### 3.1.36 以降、3.2.11 以降 のバージョン
-3.1.36 以降、3.2.11 以降のバージョンを利用している場合は、以下の環境変数を利用することが可能です。
+3.1.36 以降、3.2.11 以降のバージョンを利用している場合は、以下の環境変数を利用することが可能です。  
+リバースプロキシが適用されている環境の場合はプロキシに関連する設定を適宜変更ください。
 
 - `TOMCAT_CONNECTOR_HTTP_PORT`  
   デフォルト値: `8080`  
