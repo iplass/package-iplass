@@ -38,7 +38,37 @@ Example: if the service-config file is renamed to `my-service-config.xml` and is
 
 	docker run -e CATALINA_OPTS='-Dmtp.config=$IPLASS_HOME/conf/my-service-config.xml' ・・・
 
-#### Environment Variables ※3.0.10 or older versions  
+#### Environment Variables
+##### 3.1.36 or later, 3.2.11 or later versions
+If you are using 3.1.36 or later or 3.2.11 or later versions, the following environment variables are available.  
+If a reverse proxy is applied to your environment, please change the proxy-related settings accordingly.
+
+- `TOMCAT_CONNECTOR_HTTP_PORT`  
+  default value: `8080`  
+  Set the `port` attribute of the http connector element in ${CATALINA_HOME}/conf/server.xml.
+- `TOMCAT_CONNECTOR_HTTP_CONNECTION_TIMEOUT`  
+  default value: `20000`  
+  Set the `connectionTimeout` attribute of the http connector element in ${CATALINA_HOME}/conf/server.xml.
+- `TOMCAT_CONNECTOR_HTTP_REDIRECT_PORT`  
+  default value: `8443`  
+  Set the `redirectPort` attribute of the http connector element in ${CATALINA_HOME}/conf/server.xml.
+- `TOMCAT_CONNECTOR_HTTP_MAX_PARAMETER_COUNT`  
+  default value: `1000`  
+  Set the `maxParameterCount` attribute of the http connector element in ${CATALINA_HOME}/conf/server.xml.
+- `TOMCAT_CONNECTOR_HTTP_PROXY_NAME`  
+  default value: none  
+  Set the `proxyName` attribute of the http connector element in ${CATALINA_HOME}/conf/server.xml.
+- `TOMCAT_CONNECTOR_HTTP_PROXY_PORT`  
+  default value: none  
+  Set the `proxyPort` attribute of the http connector element in ${CATALINA_HOME}/conf/server.xml.
+- `TOMCAT_CONNECTOR_HTTP_SCHEME`  
+  default value: `http`  
+  Set the `scheme` attribute of the http connector element in ${CATALINA_HOME}/conf/server.xml.
+- `TOMCAT_CONNECTOR_HTTP_SECURE`  
+  default value: `false`  
+  Set the `secure` attribute of the http connector element in ${CATALINA_HOME}/conf/server.xml.
+
+##### 3.0.10 or older versions
 for 3.0.10 or older versions, it is necessary to specify the following environment variables in command lines.
 
 - IPLASS_DB_TYPE (required)  
@@ -147,7 +177,37 @@ service-configファイルが存在しない場合は「インストーラ起動
 
 	docker run -e CATALINA_OPTS='-Dmtp.config=$IPLASS_HOME/conf/my-service-config.xml' ・・・
 
-#### 環境変数 ※3.0.10以前のみ  
+#### 環境変数 
+##### 3.1.36 以降、3.2.11 以降 のバージョン
+3.1.36 以降、3.2.11 以降のバージョンを利用している場合は、以下の環境変数を利用することが可能です。  
+リバースプロキシが適用されている環境の場合はプロキシに関連する設定を適宜変更ください。
+
+- `TOMCAT_CONNECTOR_HTTP_PORT`  
+  デフォルト値: `8080`  
+  ${CATALINA_HOME}/conf/server.xml の http connector 要素の `port` 属性を設定します。
+- `TOMCAT_CONNECTOR_HTTP_CONNECTION_TIMEOUT`  
+  デフォルト値: `20000`  
+  ${CATALINA_HOME}/conf/server.xml の http connector 要素の `connectionTimeout` 属性を設定します。
+- `TOMCAT_CONNECTOR_HTTP_REDIRECT_PORT`  
+  デフォルト値: `8443`  
+  ${CATALINA_HOME}/conf/server.xml の http connector 要素の `redirectPort` 属性を設定します。
+- `TOMCAT_CONNECTOR_HTTP_MAX_PARAMETER_COUNT`  
+  デフォルト値: `1000`  
+  ${CATALINA_HOME}/conf/server.xml の http connector 要素の `maxParameterCount` 属性を設定します。
+- `TOMCAT_CONNECTOR_HTTP_PROXY_NAME`  
+  デフォルト値: 無し  
+  ${CATALINA_HOME}/conf/server.xml の http connector 要素の `proxyName` 属性を設定します。
+- `TOMCAT_CONNECTOR_HTTP_PROXY_PORT`  
+  デフォルト値: 無し  
+  ${CATALINA_HOME}/conf/server.xml の http connector 要素の `proxyPort` 属性を設定します。
+- `TOMCAT_CONNECTOR_HTTP_SCHEME`  
+  デフォルト値: `http`  
+  ${CATALINA_HOME}/conf/server.xml の http connector 要素の `scheme` 属性を設定します。
+- `TOMCAT_CONNECTOR_HTTP_SECURE`  
+  デフォルト値: `false`  
+  ${CATALINA_HOME}/conf/server.xml の http connector 要素の `secure` 属性を設定します。
+
+##### 3.0.10以前のみ  
 3.0.10以前を利用の場合は、起動コマンドに以下の環境変数の指定が必要です。
 
 - IPLASS_DB_TYPE (必須)  
