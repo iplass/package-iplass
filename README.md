@@ -20,7 +20,8 @@ The home directory for iPLAss, where the definition file and JDBC driver suppose
 Please also host the mount directory.
 
 1. Install JDBC driver
-At the hosting mount directory created above, create directory named `jdbc`, and place the corresponding JDBC driver's jar file to `jdbc` directory.
+At the hosting mount directory created above, create directory named `jdbc`, and place the corresponding JDBC driver's jar file to `jdbc` directory.  
+If you are using 3.1.40 or later or 3.2.15 or later versions, you can use the included JDBC driver or set the environment variable IPLASS_DOWNLOAD_URL_JDBC_DRIVER to download it when the container is first started.
 
 
 ## Booting
@@ -67,6 +68,17 @@ If a reverse proxy is applied to your environment, please change the proxy-relat
 - `TOMCAT_CONNECTOR_HTTP_SECURE`  
   default value: `false`  
   Set the `secure` attribute of the http connector element in ${CATALINA_HOME}/conf/server.xml.
+
+##### 3.1.40 or later, 3.2.15 or later versions
+If you are using 3.1.40 or later or 3.2.15 or later versions, the following environment variables are available.  
+You can specify the iPLAss configuration file URL and the JDBC driver download URL to be used in the initial configuration.
+
+- `IPLASS_DOWNLOAD_URL_JDBC_DRIVER`  
+  default value: none  
+  When the container is launched for the first time, the JDBC driver is downloaded from the specified URL.
+- `IPLASS_DOWNLOAD_URL_CONFIG_ZIP`  
+  default value: none  
+  When the container is started for the first time, a ZIP compressed file of iPLAss configuration information is downloaded from the specified URL and extracted to the IPLASS_HOME directory.
 
 ##### 3.0.10 or older versions
 for 3.0.10 or older versions, it is necessary to specify the following environment variables in command lines.
@@ -160,7 +172,9 @@ iPLAssのホームディレクトリです。定義ファイルやJDBCドライ�
 IPLASS_HOMEにマウントするディレクトリをホストに作成してください。
 
 1. JDBCドライバのインストール  
-ホストに作成したIPLASS_HOMEのマウントディレクトリに`jdbc`ディレクトリを作成し、使用するデータベースのJDBCドライバのJARファイルを`jdbc`ディレクトリに配置してください。
+ホストに作成したIPLASS_HOMEのマウントディレクトリに`jdbc`ディレクトリを作成し、使用するデータベースのJDBCドライバのJARファイルを`jdbc`ディレクトリに配置してください。  
+3.1.40 以降、3.2.15 以降のバージョンを利用している場合は、同梱済みの JDBC ドライバを利用もしくは、環境変数 IPLASS_DOWNLOAD_URL_JDBC_DRIVER を設定しコンテナ初回起動時にダウンロードすることも可能です。
+
 
 ## 起動
 起動には「ダイレクト起動」と「インストーラ起動」の二通りの方式があります。
@@ -206,6 +220,17 @@ service-configファイルが存在しない場合は「インストーラ起動
 - `TOMCAT_CONNECTOR_HTTP_SECURE`  
   デフォルト値: `false`  
   ${CATALINA_HOME}/conf/server.xml の http connector 要素の `secure` 属性を設定します。
+
+##### 3.1.40 以降、3.2.15 以降 のバージョン
+3.1.40 以降、3.2.15 以降のバージョンを利用している場合は、以下の環境変数を利用することが可能です。  
+コンテナ初回起動時に利用する iPLAss の設定ファイルURLおよび、JDBCドライバダウンロードURLを指定可能です。
+
+- `IPLASS_DOWNLOAD_URL_JDBC_DRIVER`  
+  デフォルト値: 無し  
+  コンテナ初回起動時に、指定された URL から JDBC ドライバをダウンロードします。
+- `IPLASS_DOWNLOAD_URL_CONFIG_ZIP`  
+  デフォルト値: 無し  
+  コンテナ初回起動時に、指定された URL から iPLAss 設定情報の ZIP 圧縮ファイルをダウンロードし、IPLASS_HOME ディレクトリへ展開します。
 
 ##### 3.0.10以前のみ  
 3.0.10以前を利用の場合は、起動コマンドに以下の環境変数の指定が必要です。
